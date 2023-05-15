@@ -1,0 +1,49 @@
+
+def get_subtopics(maths_query)
+	return list of  subtopics, maths_query
+	
+# front end
+Single prompt - do you know so and so subtopics?
+two buttons, yes and no
+
+	
+	# already_know
+			
+		#if yes
+		def get_solution(maths_query):
+			return solution, maths_query
+			
+		# prompt - ask whether he understood the solution ## loop
+		# 2 buttons, yes and No
+
+			# if yes, 
+			#prompt - > Need more practice example?
+			# 2 buttons, yes and No
+
+				#if No, end of the flow
+				#if Yes, 
+
+				def similar_examples(maths_query):
+					return an example in list form 
+				and also run get_solution for this new example
+		
+			#if No,
+			def get_detailed_solution(maths_query, previous_solution):
+			return solution, maths_query
+		
+	
+	#if No
+	# prompt - > which among the following you dont know?
+	# multiple select buttons, each buttons are one subtopics
+	def_explain_subtopis(list_of_subtopics):
+		return explanation[should contain all the subtopics]
+	
+	#prompt -> whether you understood the subtopics explanation?
+	#2 buttons, yes and No
+	#if Yes,
+	execute already know algorithm
+	# if No,
+	def detailed_definition(previous_solution)
+		return deatiled definition.
+	
+	
