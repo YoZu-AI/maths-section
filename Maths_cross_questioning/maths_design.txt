@@ -1,0 +1,181 @@
+['https://upload.wikimedia.org/wikipedia/commons/b/b4/Ambox_important.svg', 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Commons-logo.svg', 'https://upload.wikimedia.org/wikipedia/commons/7/76/Diploma_icon.png', 'https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/ce/NCERT.jpg']
+
+
+['https://upload.wikimedia.org/wikipedia/commons/4/4a/AiKhanoumSunDial.jpg', 'https://upload.wikimedia.org/wikipedia/commons/5/54/Ant_Nebula.jpg', 'https://upload.wikimedia.org/wikipedia/commons/1/14/B30727.jpg', 'https://upload.wikimedia.org/wikipedia/commons/4/4a/Commons-logo.svg', 'https://upload.wikimedia.org/wikipedia/commons/0/00/Crab_Nebula.jpg
+
+
+
+
+
+
+
+
+
+Neo4j
+LOAD CSV WITH HEADERS FROM 'file:///Class_7_Science_NCERT//scienec_7_KnowGL.csv' AS row
+WITH row WHERE NOT row.entity_1_type IS NULL AND NOT row.entity_2_type IS NULL
+// Filter out rows with null values in entity_1_type or entity_2_type
+
+MERGE (sentence:Sentence {text: COALESCE(row.sentence, '')})
+MERGE (entity1:Entity {text: COALESCE(row.entity_1, ''), type: COALESCE(row.entity_1_type, '')})
+MERGE (entity2:Entity {text: COALESCE(row.entity_2, ''), type: COALESCE(row.entity_2_type, '')})
+MERGE (sentence)-[:HAS_ENTITY]->(entity1)
+MERGE (sentence)-[:HAS_ENTITY]->(entity2)
+
+MERGE (entity1)-[:RELATION {name:  COALESCE(row.relation, '') }]->(entity2)
+
+
+KnowGL_Maths(2000-3000).csv
+Maths_Entity_Definition_Images(2000-3000).csv
+
+
+Sure, let's start by using the identity for tangent of the sum of two angles:
+
+tan(A + B) = (tanA + tanB) / (1 - tanA tanB)
+
+We can substitute the given values to get:
+
+√3 = (tanA + tanB) / (1 - tanA tanB)
+
+Similarly, we can use the identity for tangent of the difference of two angles:
+
+tan(A - B) = (tanA - tanB) / (1 + tanA tanB)
+
+Substituting the given values, we get:
+
+1/√3 = (tanA - tanB) / (1 + tanA tanB)
+
+We can solve these two equations simultaneously to get the values of tanA and tanB. Adding the two equations, we get:
+
+√3 + 1/√3 = 2tanA / (1 - tanA tanB)
+
+Simplifying, we get:
+
+tanA tanB = (3 - √3) / (3 + √3)
+
+Subtracting the second equation from the first, we get:
+
+√3 - 1/√3 = 2tanB / (1 - tanA tanB)
+
+Simplifying, we get:
+
+tanA + tanB = (√3 + 1/√3) / (1 - tanA tanB)
+
+We can now substitute the value of tanA tanB from the first equation to get:
+
+tanA + tanB = (√3 + 1/√3) / (1 - (3 - √3) / (3 + √3))
+
+Simplifying, we get:
+
+tanA + tanB = 2√3
+
+We can now solve these two equations simultaneously to get the values of tanA and tanB. Using the quadratic formula, we get:
+
+tanA = (√3 + 1) / 2 and tanB = (√3 - 1) / 2
+
+We know that A > B, so we can use the inverse tangent function to get:
+
+A = 60° and B = 30°
+
+Therefore, the values of A and B are 60° and 30°, respectively.
+
+
+def solution():
+    #The bakers at the Beverly Hills Bakery baked 200 loaves of bread on Monday morning. They sold 93 loaves in the morning and 39 loaves in the afternoon. A grocery store returned 6 unsold loaves. How many loaves of bread did they have left?
+    loaves_baked = 200
+    loaves_sold_morning = 93
+    loaves_sold_afternoon = 39
+    loaves_returned = 6
+    loaves_left = loaves_baked - loaves_sold_morning - loaves_sold_afternoon + loaves_returned
+    result = loaves_left
+    print(result)
+
+Do you understand the solution? Do you need a similar example? Or do you know the subtopics?
+
+
+
+
+{'Board': ['NCERT'],
+ 'Grade': ['7'],
+ 'Subject': ['Science'],
+ 'Chapter': ['Nutrition in Plants'],
+ 'Concept': ['Replenishment of Nutrients'],
+ 'Objectives': ['1. Identify the cause and effect relationship between plant rotation and replenishment of nutrients.',
+  '2. Explain the role of Rhizobium bacteria in the replenishment of nutrients in leguminous plants.',
+  '3. Construct a cause and effect model of plant rotation and the role of Rhizobium bacteria in the replenishment of nutrients.'],
+ 'Key pointers covered in the Lesson': ['1. Plant rotation',
+  '2. Replenishment of nutrients',
+  '3. Rhizobium bacteria',
+  '4. Leguminous plants'],
+ 'How': ['1. Introduction to plant rotation and its importance in replenishing nutrients.',
+  '2. Explanation of the role of Rhizobium bacteria in the replenishment of nutrients in leguminous plants.',
+  '3. Demonstration of how to construct a cause and effect model of plant rotation and the role of Rhizobium bacteria in the replenishment of nutrients.'],
+ 'Why': ['1. To understand the importance of plant rotation in replenishing nutrients.',
+  '2. To understand the role of Rhizobium bacteria in the replenishment of nutrients in leguminous plants.',
+  '3. To learn how to construct a cause and effect model.'],
+ 'Lesson assessment': ['1. What is the role of Rhizobium bacteria in the replenishment of nutrients in leguminous plants?',
+  '2. How does plant rotation help in replenishing nutrients in the soil?',
+  '3. What are the benefits of using Rhizobium bacteria in agriculture?'],
+ 'Integration': ['The concept of replenishment of nutrients can be integrated into other fields of study such as agriculture, environmental science, and biology. For example, in agriculture, understanding the role of Rhizobium bacteria can help in improving crop yields. In environmental science, knowledge of replenishment of nutrients can help in the conservation of natural resources. In biology, understanding the process of replenishment of nutrients can help in the study of plant physiology.'],
+ 'Vocabulary': ['Plant rotation, Replenishment of nutrients, Rhizobium bacteria, Leguminous plants'],
+ 'Launch': ['Ask the students if they know how farmers replenish nutrients in the soil.'],
+ 'Hook': ['Show a video of a farmer rotating crops and ask the students to identify the benefits of plant rotation.'],
+ 'Guided activity': ['1. Explain the process of plant rotation and its importance in replenishing nutrients.',
+  '2. Demonstrate the role of Rhizobium bacteria in the replenishment of nutrients in leguminous plants.',
+  '3. In groups, ask the students to construct a cause and effect model of plant rotation and the role of Rhizobium bacteria in the replenishment of nutrients.',
+  '4. Analyze the results and discuss the findings as a class.'],
+ 'Conclusion': ['Recap the key points of the lesson and ask the students if they have any questions.'],
+ 'Discussion': ["Discuss the importance of replenishment of nutrients in agriculture and evaluate the students' understanding of the lesson."],
+ 'Summary': ['Plant rotation, replenishment of nutrients, Rhizobium bacteria, and leguminous plants are the key points of the lesson.'],
+ 'Homework': ['1. How does the use of chemical fertilizers affect the replenishment of nutrients in the soil?',
+  '2. What are the different methods of plant rotation used by farmers in different parts of the world?',
+  '3. Leguminous plants are important for replenishing ____________ in the soil. Please fill in the blank.',
+  '4. The process of replenishment of nutrients is important for ____________ growth. Please fill in the blank.',
+  '5. Imagine a scenario where you are a farmer with limited resources. How would you replenish the nutrients in your soil?']}
+
+
+
+
+
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
