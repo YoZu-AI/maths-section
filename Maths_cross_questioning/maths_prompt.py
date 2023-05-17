@@ -27,3 +27,16 @@ The answer is the value of c [[answer c]].
 Q: {question}
 Peano solution:
 '''.strip() + '\n\n\n'
+
+MCQ_pre_concept_prompt = """
+For the list {maths_concept}, provides MCQ for each item in the list. MCQ should have 4 options. you should also provide the Correct Answer and the Explanation. The difficulty level of the question generated should be in increasing order. MCQ and Explanation should be suitable for a student studying in class {class_no}. You should follow the below format,
+1.Division Algorithm
+  Question: Which of the following statements about the Division Algorithm is true?
+  Options:
+  A) The Division Algorithm is used to find the greatest common divisor of two numbers.
+  B) The Division Algorithm is a method for multiplying two numbers.
+  C) The Division Algorithm is a process for dividing two numbers and finding both a quotient and a remainder.
+  D) The Division Algorithm is used to calculate the factorial of a number.
+  Answer: The Division Algorithm is a process for dividing two numbers and finding both a quotient and a remainder
+  Explanation: The Division Algorithm is a mathematical process used for dividing two numbers. It allows you to determine both a quotient and a remainder when dividing a dividend by a divisor. The algorithm ensures that the dividend equals the divisor multiplied by the quotient plus the remainder, where the remainder is always less than the divisor.
+"""
