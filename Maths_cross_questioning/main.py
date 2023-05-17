@@ -1,5 +1,5 @@
 import openai
-from maths_prompt import prompt_template
+from maths_prompt import prompt_template, MCQ_pre_concept_prompt
 openai.api_key = ''
 
 def get_maths_concepts(maths_query):
@@ -96,6 +96,42 @@ def get_detailed_definition(previous_definition, student_class):
       {"role": "user", "content": provide_definition_explanation_prompt}])
   return(completion.choices[0].message.content)
 
+def get_pre_concept_mcq(concepts_list, student_class):
+  MCQ_concept_prompt = MCQ_pre_concept_prompt.format(maths_concept = str(concepts_list), class_no = student_class)
+  completion = openai.ChatCompletion.create(
+  model = "gpt-3.5-turbo",
+  temperature = 0,
+  messages=[
+        {"role": "system", "content": 'You are an expert maths AI tutor who generates the MCQ for the items in the given list'},
+        {"role": "user", "content": MCQ_concept_prompt }])
+  maths_split = completion.choices[0].message.content.split('\n')
+  maths_split = [item for item in maths_split if item != ' ']
+  maths_split
+  pre_question = []
+  pre_answer = []
+  pre_explanation = []
+  pre_options = []
+
+  for i, string in enumerate(maths_split):
+    if 'Question' in string:
+      pre_question.append(string.split('Question:')[1].strip())
+    if 'Answer' in string:
+      pre_answer.append(string.split('Answer:')[1].strip())
+    if 'Explanation' in string:
+      pre_explanation.append(string.split('Explanation:')[1].strip())
+    elif 'Options' in string:
+      pre_options.append([maths_split[i+1][2:].strip(), maths_split[i+2][2:].strip(), maths_split[i+3][2:].strip(), maths_split[i+4][2:].strip()]) 
+
+  mcq_json_pre_list = []
+  for i in range(len(pre_question)):
+      mcq_json = {}
+      mcq_json['Question'] = pre_question[i]
+      mcq_json['Answer'] =  pre_answer[i]
+      mcq_json['Options'] = pre_options[i]
+      mcq_json['Explanation'] = pre_explanation[i]
+      mcq_json_pre_list.append(mcq_json)
+  return mcq_json_pre_list
+
 ###############################################################
 
 maths_query = 'Use Euclid’s division algorithm to find the HCF of:135 and 225'
@@ -107,6 +143,7 @@ maths_solution, maths_query = get_maths_solution(maths_query, student_class)
 detailed_solution = get_detailed_solution(maths_query, maths_solution)
 provide_definition_explanation = definitions[0]
 detailed_definition = get_detailed_definition(provide_definition_explanation, student_class)
+pre_concept_mcq = get_pre_concept_mcq(concepts_list, student_class)
 print(concepts_list)
 print(topics)
 print(definitions)
@@ -114,6 +151,7 @@ print(examples)
 print(maths_solution)
 print(detailed_solution)
 print(detailed_definition)
+print(pre_concept_mcq )
 
 
 
