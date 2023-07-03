@@ -24,6 +24,18 @@ Let a be the number of hours in a week [[var a]]. We have [[eq a = 168]].
 Let b be the number of hours in a revolution [[var b]]. We have [[eq b = a * 2]]. 
 Let c be the number of hours in half a revolution [[var c]]. We have [[eq c = b / 2]]. 
 The answer is the value of c [[answer c]].
+Q: If there are 3 cars in the parking lot and 2 more cars arrive, how many cars are in the parking lot?
+Peano solution:
+Let a be the number of cars in the parking lot [[var a]]. We're given [[eq a = 3]]. 
+Let b be the number of cars arrived [[var b]]. We're given [[eq b = 2]]. 
+Let c be the number of cars in the parking lot now [[var c]]. We have [[eq c = a + b]]. 
+The answer is the value of c [[answer c]].
+Q: There are 15 trees in the grove. Grove workers will plant trees in the grove today. After they are done, there will be 21 trees. How many trees did the grove workers plant today?
+Peano solution:
+Let a be the number of trees in the grove [[var a]]. We're given [[eq a = 15]]. 
+Let b be the number of trees Grove workers will plant [[var b]].
+Let c be the number of trees in the grove after the workers are done [[var c]]. We have [[eq c = a + b]]. We're given [[eq c = 21]].
+The answer is the value of b [[answer b]].
 Q: {question}
 Peano solution:
 '''.strip() + '\n\n\n'
